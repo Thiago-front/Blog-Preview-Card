@@ -6,6 +6,7 @@
 
 :root {
     --font-family: "Figtree", sans-serif;
+
     --text-preset-1: 800 1.5rem/1.5 var(--font-family);
     --text-preset-2: 500 1rem/1.5 var(--font-family);
     --text-preset-3: 500 0.875rem/1.5 var(--font-family);
@@ -19,25 +20,110 @@
 
 body {
     min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 16px;
 
-    background-image: repeating-linear-gradient(to right,
-            #F4D04E 0,
-            /* faixa clara */
-            #F4D04E 60px,
-            #e0bd45 60px,
-            /* mesma cor um pouco mais escura */
-            #e0bd45 120px);
+    background-image: repeating-linear-gradient(
+        to right,
+        #F4D04E 0,
+        #F4D04E 60px,
+        #e0bd45 60px,
+        #e0bd45 120px
+    );
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
 }
 
 .main {
-    padding: 24px;
-
-    width: 384px;
-    height: 522px;
-
-    border: 1px solid var(--color-secondary);
-    box-shadow: 8px 8px 0px var(--color-secondary);
-    border-radius: 20px;
     background-color: var(--bg-color);
+    border: 1px solid var(--color-secondary);
+    box-shadow: 8px 8px 0 var(--color-secondary);
+    border-radius: 20px;
+
+    max-width: 384px;
+    width: 100%;
+    padding: 24px;
 }
+
+.card {
+    display: grid;
+    gap: 24px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.content {
+    display: grid;
+    gap: 12px;
+}
+
+.content button {
+    width: fit-content;
+    padding: 4px 12px;
+    background: var(--color-primary);
+    border-radius: 4px;
+    border: none;
+    font: var(--text-preset-4);
+}
+
+.content button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow:
+        0 8px 25px rgba(244, 208, 78, 0.4),
+        0 4px 12px rgba(244, 208, 78, 0.3);
+    background: #f7d954;
+    cursor: pointer;
+}
+
+.content time {
+    font: var(--text-preset-3);
+    color: var(--color-secondary);
+}
+
+.content h1 {
+    font: var(--text-preset-1);
+    color: var(--color-secondary);
+}
+
+.content p {
+    font: var(--text-preset-2);
+    color: var(--color-tertiary);
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.author img {
+    width: 32px;
+    height: 32px;
+}
+
+.author p {
+    font: var(--text-preset-4);
+    color: var(--color-secondary);
+}
+
+/* Responsive*/
+@media (min-width: 768px) {
+    .main {
+        box-shadow: 12px 12px 0 var(--color-secondary);
+    }
+
+    .content h1:hover {
+        color: var(--color-primary);
+        transition: color 0.3s ease;
+    }
+}
+
+
 
